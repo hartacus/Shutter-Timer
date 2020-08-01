@@ -12,7 +12,7 @@ bool Fallingflag = false;  // this is a flag that i set in the interrupt routine
 void setup() {                                                  //This part of the program is run exactly once on boot
 
   Serial.begin(9600);                                          //opens a serial connection.
-  attachInterrupt(digitalPinToInterrupt(2), CLOCK, CHANGE);    //run the function CLOCK, every time the voltage on pin 2 changes.
+  attachInterrupt(digitalPinToInterrupt(2), shutterEvent, CHANGE);    //run the function CLOCK, every time the voltage on pin 2 changes.
 
 }
 
@@ -47,7 +47,7 @@ void loop() {                                                  // this part of t
   } 
 }
 
-void CLOCK(){                     //this is the interrupt function, which is called everytime the voltage on pin 2 changes, no matter where in the main program loop that the computer is currently in
+void shutterEvent() {                     //this is the interrupt function, which is called everytime the voltage on pin 2 changes, no matter where in the main program loop that the computer is currently in
   if(digitalRead(2) == HIGH){
     Risingflag = true;                // if the voltage on pin 2 is high, set the Risingflag to 1 : this will trigger the function called Rising from the main loop, which will set a start time
   }
