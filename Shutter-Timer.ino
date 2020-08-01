@@ -1,5 +1,5 @@
 // Shutter timer forked from Shutter_Timer_v1.2.ino by cameradactyl on GitHub - https://github.com/cameradactyl/Shutter-Timer/blob/master/Shutter_Timer_v1.2.ino
-// Modified to use boolean flags
+// Modified to use boolean flags and more descriptive variable names
 
 long Start;   // this is the time in microseconds that the shutter opens (the arduino runs a microsecond clock in the background always - it is reasonably accurate for this purpose)
 long Stop;    // this is the time in microseconds that the shutter closes
