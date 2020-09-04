@@ -49,10 +49,12 @@ void loop() {                                                  // this part of t
 
 void shutterEvent() {                     //this is the interrupt function, which is called everytime the voltage on pin 2 changes, no matter where in the main program loop that the computer is currently in
   if(digitalRead(2) == HIGH){
-    Risingflag = true;                // if the voltage on pin 2 is high, set the Risingflag to 1 : this will trigger the function called Rising from the main loop, which will set a start time
+    Risingflag = true;               // if the voltage on pin 2 is high, set the Risingflag to 1 : this will trigger the function called Rising from the main loop, which will set a start time
+    digitalWrite(13, HIGH); //temporary
   }
   if(digitalRead(2) == LOW){        // . if the voltage on pin 2 is low, set the Fallingflag to 1 : this will trigger the function called Falling from the main loop, which will set the stop time, and also set the Fired flag to 1.
     Fallingflag = true;
+    digitalWrite(13, LOW);  //temporary
   }
 }
 
